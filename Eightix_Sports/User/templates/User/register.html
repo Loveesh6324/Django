@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %} {% block body %}
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero"
+            src="https://images.unsplash.com/photo-1523154410-31a6b052652b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80">
+    </div>
+
+    <form method='POST' , action="/User/register/"
+        class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        {% csrf_token %}
+        <center>
+            <h2 class="text-gray-900 text-lg font-medium title-font mb-5">User Register</h2>
+        </center>
+        {% for message in messages %}
+        <div class="container-fluid p-0">
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="True">&times;</span>
+                </button> {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="form-group relative mb-4">
+            <label class="leading-7 text-sm text-gray-600"><strong>Full Name :</strong></label>
+            <input type="text" placeholder="Enter name" name="username" required
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="form-group relative mb-4">
+            <label class="leading-7 text-sm text-gray-600"><strong>Email :</strong></label>
+            <input type="email" placeholder="Enter email" name="email" required
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="form-group relative mb-4">
+            <label class="leading-7 text-sm text-gray-600"><strong>Password :</strong></label>
+            <input type="password" placeholder="Enter password" name="password" required
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="form-group relative mb-4">
+            <label class="leading-7 text-sm text-gray-600"><strong>Phone No. :</strong></label>
+            <input type="tel" placeholder="Enter password" name="phn_no" required
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <br>
+        <button type="submit"
+            class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Register</button>
+        <br>
+
+        <div class="form-group relative mb-4">
+            <center><a href="/User/login">Back To Login</a></center>
+        </div>
+    </form>
+
+
+
+
+</div>
+</div>
+{% endblock %}

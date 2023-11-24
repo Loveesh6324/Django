@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Eightix Sports</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="all,follow">
+        <!-- gLightbox gallery-->
+        <!-- <link rel="stylesheet" href="{% static '/vendor/glightbox/css/glightbox.min.css' %}"> -->
+        <!-- Range slider-->
+        <!-- <link rel="stylesheet" href="{% static '/vendor/nouislider/nouislider.min.css' %}"> -->
+        <!-- Choices CSS-->
+        <!-- <link rel="stylesheet" href="{% static '/vendor/choices.js/public/assets/styles/choices.min.css' %}"> -->
+        <!-- Swiper slider-->
+        <!-- <link rel="stylesheet" href="{% static '/vendor/swiper/swiper-bundle.min.css' %}"> -->
+        <!-- Google fonts-->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
+        <!-- theme stylesheet-->
+        <link rel="stylesheet" href="{% static '/css/style.default.css' %}" id="theme-stylesheet">
+        <!-- Custom stylesheet - for your changes-->
+        <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="{% static '/img/favicon.png' %}">
+    </head>
+
+    <body>
+        <div class="page-holder">
+            <!-- navbar-->
+            <header class="header bg-white">
+                <div class="container px-lg-3">
+                    <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand"
+                            href="/"><span class="fw-bold text-uppercase text-dark">Eightix</span></a>
+                        <button class="navbar-toggler navbar-toggler-end" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <!-- Link--><a class="nav-link active" href="/">Home</a>
+                                </li>
+                                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown"
+                                        href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">Shop</a>
+                                    <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="pagesDropdown"><a
+                                            class="dropdown-item border-0 transition-link" href="/">Home</a><a
+                                            class="dropdown-item border-0 transition-link" href="/Shop/kids">Kids</a><a
+                                            class="dropdown-item border-0 transition-link"
+                                            href="/Shop/gym_equipments">Gym Equipments</a><a
+                                            class="dropdown-item border-0 transition-link"
+                                            href="/Shop/cardio">Cardio</a><a
+                                            class="dropdown-item border-0 transition-link"
+                                            href="/Shop/clothes">Clothes</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- Link--><a class="nav-link" href="/Shop/about">About Us</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ms-auto">
+                                {% if request.session.user %}
+                                <li class="nav-item"><a class="nav-link" href="/User/cart"> <i
+                                            class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/User/logout"> <i
+                                            class="fas fa-user me-1 text-gray fw-normal"></i>Logout</a></li>
+                                {% else %}
+
+                                <li class="nav-item"><a class="nav-link" href="/User/cart"> <i
+                                            class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/User/login"> <i
+                                            class="fas fa-user me-1 text-gray fw-normal"></i>Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Suggestion View Modal -->
+            <div class="modal fade" id="SuggestionView" tabindex="-1">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content overflow-hidden border-0">
+                        <button class="btn-close p-4 position-absolute top-0 end-0 z-index-20 shadow-0" type="button"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-body p-0">
+
+                            <div class="p-4 my-md-1">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="InputName">Full Name</label>
+                                        <input type="text" class="form-control" id="Sfname" aria-describedby="emailHelp"
+                                            placeholder="Enter Full Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" id="Semail"
+                                            aria-describedby="emailHelp" placeholder="Enter email">
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share
+                                            your
+                                            email with
+                                            anyone else.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Inputsuggestion">Suggestion</label>
+                                        <input type="text" class="form-control" id="SInput"
+                                            placeholder="Give your Suggestion">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact View Modal -->
+            <div class="modal fade" id="ContactView" tabindex="-1">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content overflow-hidden border-0">
+                        <button class="btn-close p-4 position-absolute top-0 end-0 z-index-20 shadow-0" type="button"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-body p-0">
+                            <div class="row align-items-stretch">
+                                <div class="p-4 my-md-4">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="InputName">Full Name</label>
+                                            <input type="text" class="form-control" id="Cfname"
+                                                aria-describedby="emailHelp" placeholder="Enter Full Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email address</label>
+                                            <input type="email" class="form-control" id="Cemail"
+                                                aria-describedby="emailHelp" placeholder="Enter email">
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share
+                                                your
+                                                email with
+                                                anyone else.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPhn">Phone Number</label>
+                                            <input type="number" class="form-control" id="CPhn_no"
+                                                aria-describedby="emailHelp" placeholder="Enter email">
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share
+                                                your
+                                                number
+                                                with
+                                                anyone else.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="InputProblem">Query</label>
+                                            <input type="text" class="form-control" id="Cquery" aria-describedby="Help"
+                                                placeholder="Type your Query">
+                                            <small id="Help" class="form-text text-muted">Leave your query here our
+                                                team
+                                                will connect shortly.</small>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% block body %} {% endblock %}
+            <footer class="bg-dark text-white">
+                <div class="container py-4">
+                    <div class="row py-5">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h6 class="text-uppercase mb-3">Customer services</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li><a class="footer-link" href="#ContactView" data-bs-toggle="modal">Help &amp;
+                                        Contact
+                                        Us</a></li>
+                                <li><a class="footer-link" href="#SuggestionView" data-bs-toggle="modal">Suggestions</a>
+                                </li>
+                                <li><a class="footer-link" href="#!">Refunds</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h6 class="text-uppercase mb-3">Company</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li><a class="footer-link" href="/Shop/about">What We Do</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="text-uppercase mb-3">Social media</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li><a class="footer-link" href="#!">Instagram</a></li>
+                                <li><a class="footer-link" href="#!">Facebook</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-top pt-4" style="border-color: #1d1d1d !important">
+                        <div class="row">
+                            <div class="col-md-6 text-center text-md-start">
+                                <p class="small text-muted mb-0">&copy; 2021 All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- JavaScript files-->
+            <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+            <script type="text/javascript">
+                function CheckView() {
+
+                    if (HttpContext.Current.Session["LoggedIn"] != null) {
+                        // once inside this loop
+                        // you can now read the value from Session["LoggedIn"]
+                        return Response.Redirect("/User/cart");
+                    }
+                }
+            </script>
+            <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+                integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+                crossorigin="anonymous">
+        </div>
+    </body>
+
+</html>

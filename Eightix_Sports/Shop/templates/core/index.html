@@ -1,0 +1,137 @@
+{% extends 'core/base.html' %} {% block body %} {% load static %}
+<!-- HERO SECTION-->
+<section class="py-sm-3 bg-light">
+    <div class="container">
+        <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
+            <div class="col-lg-6">
+                <h1 class="h2 text-uppercase mb-0">Eightix Sports</h1>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end mb-0 px-0 bg-light">
+                        <li class="breadcrumb-item"><a class="text-dark" href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CATEGORIES SECTION-->
+<section class="pt-5">
+    <header class="text-center">
+        <p class="small text-muted small text-uppercase mb-1">Premium Quality Collections</p>
+        <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
+    </header>
+    <div class="row">
+        <div class="col-md-4"><a class="category-item" href="/Shop/clothes"><img width="70" class="img-fluid" src="{{image.url}}"
+                    alt="8x" /><strong class="category-item-title">Clothes</strong></a>
+        </div>
+        <div class="col-md-4"><a class="category-item mb-4" href="/Shop/gym_equipments"><img class="img-fluid" src="#"
+                    alt="8x" /><strong class="category-item-title">Gym
+                    Equipments</strong></a><a class="category-item" href="/Shop/cardio"><img class="img-fluid" src="#"
+                    alt="8x" /><strong class="category-item-title">Cardio</strong></a>
+        </div>
+        <div class="col-md-4"><a class="category-item" href="/Shop/kids"><img class="img-fluid" src="#" alt="8x" /><strong
+                    class="category-item-title">Kids</strong></a>
+        </div>
+    </div>
+</section>
+<!-- TRENDING PRODUCTS-->
+<section class="py-5">
+    <header>
+        <p class="small text-muted small text-uppercase mb-1">Made the hard way</p>
+        <h2 class="h5 text-uppercase mb-4">Top trending products</h2>
+    </header>
+    <div class="row">
+        <!-- PRODUCT-->
+        <!-- <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white bg-"></div><a class="d-block" href="#"><img class="img-fluid w-100"
+                            src="{% static '/img/product-5.jpg' %}" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add
+                                    to cart</a></li>
+                            <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView"
+                                    data-bs-toggle="modal"><i class="fas fa-expand"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h6> <a class="reset-anchor" href="#">Kui Ye Chen’s AirPods</a></h6>
+                <p class="small text-muted">$250</p>
+            </div>
+        </div> -->
+
+    </div>
+</section>
+<!-- SERVICES-->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center gy-3">
+            <div class="col-lg-4">
+                <div class="d-inline-block">
+                    <div class="d-flex align-items-end">
+                        <svg class="svg-icon svg-icon-big svg-icon-light">
+                            <use xlink:href="#delivery-time-1"> </use>
+                        </svg>
+                        <div class="text-start ms-3">
+                            <h6 class="text-uppercase mb-1">Shipping</h6>
+                            <p class="text-sm mb-0 text-muted">All India shipping</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-inline-block">
+                    <div class="d-flex align-items-end">
+                        <svg class="svg-icon svg-icon-big svg-icon-light">
+                            <use xlink:href="#helpline-24h-1"> </use>
+                        </svg>
+                        <div class="text-start ms-3">
+                            <h6 class="text-uppercase mb-1">Service</h6>
+                            <p class="text-sm mb-0 text-muted">Free shipping worldwide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-inline-block">
+                    <div class="d-flex align-items-end">
+                        <svg class="svg-icon svg-icon-big svg-icon-light">
+                            <use xlink:href="#label-tag-1"> </use>
+                        </svg>
+                        <div class="text-start ms-3">
+                            <h6 class="text-uppercase mb-1">Festival offers</h6>
+                            <p class="text-sm mb-0 text-muted">Free shipping worldwide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- NEWSLETTER-->
+<section class="py-5">
+    <div class="container p-0">
+        <div class="row gy-3">
+            <div class="col-lg-6">
+                <h5 class="text-uppercase">Let's be friends!</h5>
+                <p class="text-sm text-muted mb-0">Nisi nisi tempor consequat laboris nisi.</p>
+            </div>
+            <div class="col-lg-6">
+                <form action="#">
+                    <div class="input-group">
+                        <input class="form-control form-control-lg" type="email" placeholder="Enter your email address"
+                            aria-describedby="button-addon2">
+                        <button class="btn btn-dark" id="button-addon2" type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+{% endblock %}
